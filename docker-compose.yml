@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  enshrouded:
+    build: .
+    ports:
+      - "15636:15636"
+      - "15637:15667"
+    volumes:
+      - "./enshrouded_server.json:/home/steam/enshrouded/enshrouded_server.json:ro"
+      - "enshrouded_data:/home/steam/enshrouded"
+
+volumes:
+  enshrouded_data:
