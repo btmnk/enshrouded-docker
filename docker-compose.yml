@@ -4,11 +4,18 @@ services:
   enshrouded:
     build: .
     ports:
-      - "15636:15636"
-      - "15637:15667"
+      - "15636:15636/udp"
+      - "15637:15637/udp"
+    networks:
+      - "backendnetwork"
     volumes:
-      - "./enshrouded_server.json:/home/steam/enshrouded/enshrouded_server.json:ro"
+      - "./enshrouded_server.json:/home/steam/enshrouded/enshrouded_server.json"
+      - "./savegame:/home/steam/enshrouded/savegame"      
       - "enshrouded_data:/home/steam/enshrouded"
 
 volumes:
   enshrouded_data:
+
+networks:
+  backendnetwork:
+    attachable: true

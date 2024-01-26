@@ -1,11 +1,10 @@
 # derived from https://github.com/PR3SIDENT/enshrouded-server/tree/main
 
-FROM ubuntu:22.04
+FROM debian:12
 
 ENV DEBIAN_FRONTEND "noninteractive"
 ENV WINEPREFIX "/home/steam/.enshrouded_prefix"
 ENV WINEARCH "win64"
-ENV WINEDEBUG "-all"
 
 # Install base packages
 RUN set -x \
